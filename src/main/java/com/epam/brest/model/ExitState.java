@@ -2,7 +2,7 @@ package com.epam.brest.model;
 
 import static com.epam.brest.model.StatusType.EXIT;
 
-public class Exit implements Status{
+public class ExitState implements Status{
 
     @Override
     public Status handle() {

@@ -1,10 +1,12 @@
 package com.epam.brest.selector;
 
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
+@Component
 public class PriceSelector {
     public BigDecimal selectPriceValue(Map<Integer, BigDecimal> valueMap, BigDecimal targetValue) {
         SortedSet<Integer> sortedKeys = new TreeSet<>(valueMap.keySet());

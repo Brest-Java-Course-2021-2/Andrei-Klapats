@@ -6,6 +6,7 @@ import com.epam.brest.file.FileReader;
 import com.epam.brest.model.ReadDataState;
 import com.epam.brest.model.Status;
 import com.epam.brest.model.StatusType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,12 +15,11 @@ import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Scanner;
 
-
 public class Main {
     public static void main(String[] args) throws IOException {
         ApplicationContext applicationContext
                 = new ClassPathXmlApplicationContext("spring-config.xml");
-        FileReader fileReader = (FileReader) applicationContext.getBean("fileReader");
+        FileReader fileReader = applicationContext.getBean(FileReader.class);
 
         Map<Integer, BigDecimal> pricePerKgMap = fileReader.readData("priceOfDistance.csv");
         Map<Integer, BigDecimal> pricePerKmMap = fileReader.readData("priceOfDistance.csv");

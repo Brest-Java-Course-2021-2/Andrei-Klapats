@@ -3,6 +3,7 @@ package com.epam.brest.model;
 
 import com.epam.brest.calc.CalcImpl;
 import com.epam.brest.selector.PriceSelector;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,8 +16,8 @@ import static com.epam.brest.model.StatusType.CALC;
 public class CalcState extends AbstractStatus {
     ApplicationContext applicationContext
             = new ClassPathXmlApplicationContext("spring-config.xml");
-    CalcImpl calculation = (CalcImpl) applicationContext.getBean("calcImpl");
-    PriceSelector priceSelector = (PriceSelector) applicationContext.getBean("priceSelector");
+    CalcImpl calculation = applicationContext.getBean(CalcImpl.class);
+    PriceSelector priceSelector =  applicationContext.getBean(PriceSelector.class);
 
 
     public CalcState(Scanner scanner, Map<Integer, BigDecimal> pricePerKgMap, Map<Integer, BigDecimal> pricePerKmMap) {

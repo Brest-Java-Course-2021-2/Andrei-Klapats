@@ -1,5 +1,7 @@
 package com.epam.brest.file;
 
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +9,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.TreeMap;
-
+@Component
 public class CSVFileReader implements FileReader {
 
     @Override
